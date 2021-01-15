@@ -1,0 +1,41 @@
+{
+  "name": "homebridge-pigpio-rgbstrip-fading",
+  "description": "Raspberry Pi PiGPIO based LED Strip plugin that adds a fading mode for Homebridge",
+  "version": "0.0.1",
+  "author": "Adam Lechowicz",
+  "license": "GPL-3.0-only",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://adamlechowicz/homebridge-pigpio-rgbstrip-fading.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamlechowicz/homebridge-pigpio-rgb-ledstrip/issues"
+  },
+  "funding": {
+    "type": "paypal",
+    "url": "https://www.paypal.com/donate?hosted_button_id=D499W6D3MKYSY"
+  },
+  "homepage": "https://github.com/adamlechowicz/homebridge-pigpio-rgb-ledstrip#readme",
+  "keywords": [
+    "homebridge-plugin",
+    "gpio rgb ledstrip",
+    "led light",
+    "rgb",
+    "led",
+    "gpio",
+    "homebridge",
+    "pigpio"
+  ],
+  "engines": {
+    "node": ">=10",
+    "homebridge": ">=1.0.0"
+  },
+  "dependencies": {
+    "color-convert": "^2.0.0",
+    "pigpio-client": "^1.5.0"
+  }
+}
