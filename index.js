@@ -92,9 +92,9 @@ LedStripFadingAccessory.prototype = {
       {
           this.updateRGB();
       } else {
-          this.rLed.waveClear();
-          this.gLed.waveClear();
-          this.bLed.waveClear();
+          this.rLed.waveTxStop();
+          this.gLed.waveTxStop();
+          this.bLed.waveTxStop();
       }
     }
   },
@@ -105,6 +105,8 @@ LedStripFadingAccessory.prototype = {
       await this.rLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
       const rWave = await this.rLed.waveCreate();
       this.rLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
+      this.gLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
+      this.bLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
     }).catch(console.error);
   }
 
