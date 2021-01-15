@@ -104,9 +104,9 @@ LedStripFadingAccessory.prototype = {
     this.rLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
     this.gLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
     this.bLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
-    const rWave = rLed.waveCreate();
-    const gWave = gLed.waveCreate();
-    const bWave = bLed.waveCreate();
+    const rWave = this.rLed.waveCreate();
+    const gWave = this.gLed.waveCreate();
+    const bWave = this.bLed.waveCreate();
     rLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
     gLed.waveChainTx([{loop: true}, {waves: [gWave]}, {repeat: true}]);
     bLed.waveChainTx([{loop: true}, {waves: [bWave]}, {repeat: true}]);
