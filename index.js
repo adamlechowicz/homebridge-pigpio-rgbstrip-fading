@@ -73,7 +73,7 @@ LedStripFadingAccessory.prototype = {
 
       this.log("LEDStripFading has been successfully initialized!");
 
-      return [informationService, smartLedStripService];
+      return [informationService, rgbStripFadingService];
     }else{
       this.log("LEDStripFading has not been initialized, please check your logs..");
       return [];
