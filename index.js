@@ -13,7 +13,6 @@ const ready = new Promise((resolve, reject) => {
 module.exports = function(homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-
 	homebridge.registerAccessory('homebridge-pigpio-rgbstrip-fading', 'LEDStripFading', LEDStripFadingAccessory);
 }
 
