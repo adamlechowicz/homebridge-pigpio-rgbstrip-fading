@@ -95,7 +95,7 @@ LedStripFadingAccessory.prototype = {
     }
   },
 
-  updateRGB : function(red, green, blue)
+  updateRGB : function()
   {
       let red = 255;
       let green = 0;
