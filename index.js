@@ -13,10 +13,10 @@ const ready = new Promise((resolve, reject) => {
 module.exports = function(homebridge) {
 	Service = homebridge.hap.Service;
 	Characteristic = homebridge.hap.Characteristic;
-	homebridge.registerAccessory('homebridge-pigpio-rgbstrip-fading', 'LEDStripFading', LEDStripFadingAccessory);
+	homebridge.registerAccessory('homebridge-pigpio-rgbstrip-fading', 'LedStripFading', LedStripFadingAccessory);
 }
 
-function LEDStripFadingAccessory(log, config) {
+function LedStripFadingAccessory(log, config) {
   this.log      = log;
   this.name     = config['name'];
 
@@ -50,7 +50,7 @@ function LEDStripFadingAccessory(log, config) {
 
 }
 
-LEDStripFadingAccessory.prototype = {
+LedStripFadingAccessory.prototype = {
 
   getServices : function(){
 
