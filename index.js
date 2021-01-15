@@ -99,11 +99,17 @@ LedStripFadingAccessory.prototype = {
     }
   },
 
-  updateRGB : function()
+  updateRGB : async function()
   {
-    this.rLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
-    this.gLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
-    this.bLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    await this.rLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    await this.gLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    await this.bLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    const rWave = await this.rLed.waveCreate();
+    const gWave = await this.gLed.waveCreate();
+    const bWave = await this.bLed.waveCreate();
+    this.rLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
+    this.gLed.waveChainTx([{loop: true}, {waves: [gWave]}, {repeat: true}]);
+    this.bLed.waveChainTx([{loop: true}, {waves: [bWave]}, {repeat: true}]);
   }
 
 }
