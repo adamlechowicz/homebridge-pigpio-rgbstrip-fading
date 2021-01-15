@@ -91,45 +91,25 @@ LedStripFadingAccessory.prototype = {
       if(this.isOn())
       {
           this.updateRGB();
+      } else {
+          this.rLed.waveClear();
+          this.gLed.waveClear();
+          this.bLed.waveClear();
       }
     }
   },
 
   updateRGB : function()
   {
-      let red = 255;
-      let green = 0;
-      let blue = 0;
-
-      if(this.enabled){
-        while(this.isOn())
-        {
-            this.rLed.analogWrite(red);
-            this.gLed.analogWrite(green);
-            this.bLed.analogWrite(blue);
-            if(red === 255){
-              if(blue > 0){
-                blue -= 5;
-              } else {
-                green += 5;
-              }
-            }
-            if(green === 255){
-              if(red > 0){
-                red -= 5;
-              } else {
-                blue += 5;
-              }
-            }
-            if(blue === 255){
-              if(green > 0){
-                green -= 5;
-              } else {
-                red += 5;
-              }
-            }
-        }
-      }
+    this.rLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    this.gLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    this.bLed.waveAddPulse([[1, 0, 1000000], [0, 1, 1000000]]);
+    const rWave = await led.waveCreate();
+    const gWave = await led.waveCreate();
+    const bWave = await led.waveCreate();
+    rLed.waveChainTx([{loop: true}, {waves: [rWave]}, {repeat: true}]);
+    gLed.waveChainTx([{loop: true}, {waves: [gWave]}, {repeat: true}]);
+    bLed.waveChainTx([{loop: true}, {waves: [bWave]}, {repeat: true}]);
   }
 
 }
